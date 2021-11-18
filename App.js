@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-// import { NavigationContainer } from "@react-navigation/native";
-// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import WorldClock from "./screens/WorldClock";
 import Alarm from "./screens/Alarm";
@@ -11,14 +10,22 @@ import Timer from "./screens/Timer";
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+function MyTabs() {
   return (
     <Tab.Navigator initialRouteName="WorldClock">
-      <Tab.Screen name="WorldClock" component={WorldClock}></Tab.Screen>
-      <Tab.Screen name="Alarm" component={Alarm}></Tab.Screen>
-      <Tab.Screen name="Stopwatch" component={Stopwatch}></Tab.Screen>
-      <Tab.Screen name="Timer" component={Timer}></Tab.Screen>
+      <Tab.Screen name="WorldClock" component={WorldClock} />
+      <Tab.Screen name="Alarm" component={Alarm} />
+      <Tab.Screen name="Stopwatch" component={Stopwatch} />
+      <Tab.Screen name="Timer" component={Timer} />
     </Tab.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
   );
 }
 
